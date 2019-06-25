@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.universedeveloper.mybookingfieldtrip.BookingHari.ListPaket;
 import com.universedeveloper.mybookingfieldtrip.BookingHari.ListPaketOutbound;
+import com.universedeveloper.mybookingfieldtrip.LihatJadwal.LihatJadwal;
 import com.universedeveloper.mybookingfieldtrip.LoginRegister.LoginUser;
 import com.universedeveloper.mybookingfieldtrip.R;
 import android.widget.LinearLayout;
@@ -38,7 +39,7 @@ import java.util.List;
 public class Beranda extends Fragment {
 
     String id;
-    CardView btn_bookingtanggal;
+    CardView btn_bookingtanggal, btnbungiadmin, btnjadawal;
     SharedPreferences sharedpreferences;
 
 
@@ -115,6 +116,31 @@ public class Beranda extends Fragment {
 
         });
 
+        btnbungiadmin = rootView.findViewById(R.id.btnbungiadmin);
+        btnbungiadmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentWhatsapp = new Intent("android.intent.action.MAIN");
+                intentWhatsapp.setAction(Intent.ACTION_VIEW);
+                String url = "https://api.whatsapp.com/send?phone=" + "6285803000346" + "&text=Halo admin, Mau reservasi Outbound nih....";
+
+                intentWhatsapp.setData(Uri.parse(url));
+                intentWhatsapp.setPackage("com.whatsapp");
+                getActivity().startActivity(intentWhatsapp);
+            }
+
+        });
+
+        btnjadawal= rootView.findViewById(R.id.btnjadawal);
+        btnjadawal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getActivity(), LihatJadwal.class);
+                getActivity().startActivity(intent);
+            }
+
+        });
         return rootView;
     }
 

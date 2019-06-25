@@ -76,4 +76,7 @@ dependencies {
     //matauang
     implementation 'com.github.faranjit:currency-edittext:1.0.1'
     implementation 'com.github.pahlevikun:iduang:0.0.1'
+
+    //Kalender
+    implementation 'com.github.prolificinteractive:material-calendarview:1.4.2'
 }

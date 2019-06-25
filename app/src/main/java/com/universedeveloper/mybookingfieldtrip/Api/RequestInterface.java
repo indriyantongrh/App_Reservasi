@@ -40,6 +40,10 @@ public interface RequestInterface {
 
  //detail transaksi
  @GET("fieldtripkandri/User/detailtransaksi.php")
- Call<JSONResponse> getTransaksi(@Query("id_transaksi") String id_transaksi);
+ Call<JSONResponse> getTransaksi(@Query("id") String id);
+
+ //detail tanggalbooking
+ @GET("fieldtripkandri/User/get_tanggal_booking.php")
+ Call<JSONResponse> getData_tanggal(@Query("id_transaksi") String id_transaksi);
 
 }

@@ -12,12 +12,13 @@ import android.widget.Toast;
 
 import com.universedeveloper.mybookingfieldtrip.LoginRegister.LoginUser;
 import com.universedeveloper.mybookingfieldtrip.PaketSingkong.PaketSingkong;
+import com.universedeveloper.mybookingfieldtrip.PaketSusu.PaketSusu;
 import com.universedeveloper.mybookingfieldtrip.R;
 
 public class ListPaket extends AppCompatActivity {
 
     String id;
-    CardView btn_paketsingkong, btn_paketkeliling;
+    CardView btn_paketsingkong, btn_paketkeliling, btn_paketsapi,btn_paketlivein ;
     SharedPreferences sharedpreferences;
 
 
@@ -36,6 +37,27 @@ public class ListPaket extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), PaketSingkong.class);
                 startActivity(intent);
+            }
+
+        });
+
+        btn_paketsapi = findViewById(R.id.btn_paketsapi);
+        btn_paketsapi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PaketSusu.class);
+                startActivity(intent);
+            }
+
+        });
+
+
+        btn_paketlivein = findViewById(R.id.btn_paketlivein);
+        btn_paketlivein.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getApplicationContext(), "Fitur Paket Jadi Anak Desa Wisata Segera Hadir", Toast.LENGTH_SHORT).show();
             }
 
         });

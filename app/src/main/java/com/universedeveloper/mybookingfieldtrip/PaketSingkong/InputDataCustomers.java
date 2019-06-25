@@ -180,13 +180,13 @@ public class InputDataCustomers extends AppCompatActivity implements View.OnClic
 
         ambilProfilUser();
 
-        btntanggal.setOnClickListener(this);
+        txttanggalbooking.setOnClickListener(this);
 
     }
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btntanggal:
+            case R.id.txttanggalbooking:
 
                 Calendar c = Calendar.getInstance();
                 mYear = c.get(Calendar.YEAR);

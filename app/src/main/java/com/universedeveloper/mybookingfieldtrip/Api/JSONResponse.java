@@ -20,4 +20,9 @@ public class JSONResponse {
     private ModelTransaksiUser[] datatransaksi;
 
     public ModelTransaksiUser[] getTransaksi() { return datatransaksi; }
+
+    private ModelTanggal[] data_tanggal;
+
+    public ModelTanggal[] getData_tanggal() { return data_tanggal; }
+
 }

@@ -23,9 +23,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PaketSusu.PembayaranSusu"></activity>
-        <activity android:name=".PaketSusu.InputDataCustSusu" />
-        <activity android:name=".PaketSusu.PaketSusu" />
+        <activity
+            android:name=".LihatJadwal.LihatJadwal"
+            android:theme="@style/Tanpajudul"></activity>
+        <activity
+            android:name=".PaketSusu.PembayaranSusu"
+            android:theme="@style/Tanpajudul" />
+        <activity
+            android:name=".PaketSusu.InputDataCustSusu"
+            android:theme="@style/Tanpajudul" />
+        <activity
+            android:name=".PaketSusu.PaketSusu"
+            android:theme="@style/Tanpajudul" />
         <activity
             android:name=".PaketSingkong.PembayaranSingkong"
             android:theme="@style/Tanpajudul" />
