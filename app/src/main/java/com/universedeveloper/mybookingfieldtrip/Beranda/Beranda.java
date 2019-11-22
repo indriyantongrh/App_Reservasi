@@ -7,17 +7,24 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.universedeveloper.mybookingfieldtrip.Api.JSONResponse;
+import com.universedeveloper.mybookingfieldtrip.Api.ModelProfilUser;
+import com.universedeveloper.mybookingfieldtrip.Api.RequestInterface;
 import com.universedeveloper.mybookingfieldtrip.BookingHari.ListPaket;
 import com.universedeveloper.mybookingfieldtrip.BookingHari.ListPaketOutbound;
+import com.universedeveloper.mybookingfieldtrip.KonfirmasiPembayaran.KonfirmasiPembayaran;
 import com.universedeveloper.mybookingfieldtrip.LihatJadwal.LihatJadwal;
 import com.universedeveloper.mybookingfieldtrip.LoginRegister.LoginUser;
 import com.universedeveloper.mybookingfieldtrip.R;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.universedeveloper.mybookingfieldtrip._sliders.FragmentSlider;
@@ -26,7 +33,14 @@ import com.universedeveloper.mybookingfieldtrip._sliders.SliderPagerAdapter;
 import com.universedeveloper.mybookingfieldtrip._sliders.SliderView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,11 +51,12 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class Beranda extends Fragment {
-
+    private ArrayList<ModelProfilUser> mArrayListUser;
     String id;
-    CardView btn_bookingtanggal, btnbungiadmin, btnjadawal;
+    TextView txt_nama_akun;
+    CardView btn_bookingtanggal, btnbungiadmin, btnjadawal,btnkonfirmasi;
     SharedPreferences sharedpreferences;
-
+    public static final String BASE_URL = "http://universedeveloper.com/gudangandroid/";
 
     private SliderPagerAdapter mAdapter;
     private SliderIndicator mIndicator;
@@ -96,9 +111,11 @@ public class Beranda extends Fragment {
                              Bundle savedInstanceState) {
         View rootView =  inflater.inflate(R.layout.fragment_beranda, container, false);
         // Inflate the layout for this fragment
-
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        txt_nama_akun = rootView.findViewById(R.id.txt_nama_akun);
         sharedpreferences = getActivity().getSharedPreferences(LoginUser.my_shared_preferences, Context.MODE_PRIVATE);
         id = sharedpreferences.getString("id", "0");
+        Toast.makeText(getActivity(), "ini id ke-"+ id, Toast.LENGTH_SHORT).show();
 
 
         sliderView = (SliderView) rootView.findViewById(R.id.sliderView);
@@ -111,6 +128,17 @@ public class Beranda extends Fragment {
             public void onClick(View view) {
 
                 Intent intent = new Intent(getActivity(), ListPaket.class);
+                getActivity().startActivity(intent);
+            }
+
+        });
+
+        btnkonfirmasi = rootView.findViewById(R.id.btnkonfirmasi);
+        btnkonfirmasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getActivity(), KonfirmasiPembayaran.class);
                 getActivity().startActivity(intent);
             }
 
@@ -141,6 +169,8 @@ public class Beranda extends Fragment {
             }
 
         });
+
+        ambilProfilUser();
         return rootView;
     }
 
@@ -154,11 +184,6 @@ public class Beranda extends Fragment {
 
 
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
     /**
      * This interface must be implemented by activities that contain this
@@ -194,5 +219,33 @@ public class Beranda extends Fragment {
         mIndicator = new SliderIndicator(getActivity(), mLinearLayout, sliderView, R.drawable.indicator_circle);
         mIndicator.setPageCount(fragments.size());
         mIndicator.show();
+    }
+
+    public void ambilProfilUser(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RequestInterface request = retrofit.create(RequestInterface.class);
+        Call<JSONResponse> call = request.getProfilUser(id);
+        call.enqueue(new Callback<JSONResponse>() {
+            @Override
+            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
+                JSONResponse jsonResponse = response.body();
+
+                mArrayListUser = new ArrayList<>(Arrays.asList(jsonResponse.getDatauser()));
+                String nama_lengkap = mArrayListUser.get(0).getNama_user();
+
+
+                txt_nama_akun.setText(nama_lengkap);
+
+            }
+
+            @Override
+            public void onFailure(Call<JSONResponse> call, Throwable t) {
+                Log.d("Error",t.getMessage());
+            }
+        });
     }
 }

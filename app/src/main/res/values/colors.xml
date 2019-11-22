@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimaryDark">#008577</color>
+    <color name="colorAccent">#47c1ff</color>
     <color name="colorBarJualBeli">#2aa1af</color>
     <color name="colorcardview">#e2f0f1</color>
     <color name="colorBlack">#000000</color>

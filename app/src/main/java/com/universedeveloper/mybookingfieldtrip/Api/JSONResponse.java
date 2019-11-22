@@ -1,5 +1,7 @@
 package com.universedeveloper.mybookingfieldtrip.Api;
 
+import com.universedeveloper.mybookingfieldtrip.KonfirmasiPembayaran.ModelKonfirmasiPembayaran;
+
 public class JSONResponse {
     private ModelMenu[] menu;
 
@@ -24,5 +26,11 @@ public class JSONResponse {
     private ModelTanggal[] data_tanggal;
 
     public ModelTanggal[] getData_tanggal() { return data_tanggal; }
+
+    private ModelKonfirmasiPembayaran[] listpesanan;
+
+    public ModelKonfirmasiPembayaran[] getStatusPesanan() {
+        return listpesanan;
+    }
 
 }

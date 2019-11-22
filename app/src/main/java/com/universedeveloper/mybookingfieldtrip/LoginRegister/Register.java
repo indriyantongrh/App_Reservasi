@@ -124,6 +124,8 @@ public class Register extends AppCompatActivity {
 
                         Log.e("Registrasi berhasil!", jObj.toString());
 
+                        goToLogin();
+
                         Toast.makeText(getApplicationContext(),
                                 jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
 
@@ -196,4 +198,13 @@ public class Register extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
+
+
+    private void goToLogin(){
+
+        intent = new Intent(Register.this, LoginUser.class);
+        finish();
+        startActivity(intent);
+    }
+
 }

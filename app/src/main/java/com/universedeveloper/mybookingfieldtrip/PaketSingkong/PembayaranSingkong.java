@@ -22,7 +22,9 @@ import com.universedeveloper.mybookingfieldtrip.Api.JSONResponse;
 import com.universedeveloper.mybookingfieldtrip.Api.ModelProfilUser;
 import com.universedeveloper.mybookingfieldtrip.Api.ModelTransaksiUser;
 import com.universedeveloper.mybookingfieldtrip.Api.RequestInterface;
+import com.universedeveloper.mybookingfieldtrip.BookingHari.ListPaket;
 import com.universedeveloper.mybookingfieldtrip.LoginRegister.LoginUser;
+import com.universedeveloper.mybookingfieldtrip.PaketSusu.InputDataCustSusu;
 import com.universedeveloper.mybookingfieldtrip.R;
 import com.universedeveloper.mybookingfieldtrip.Utility.JSONParser;
 
@@ -51,7 +53,7 @@ public class PembayaranSingkong extends AppCompatActivity {
     public final static String TAG_ID_TRANSAKSI = "id_transaksi";
     public final static String TAG_ID_EMAIL = "email";
 
-    TextView txt_jumlahsiswa, txt_totalharga;
+    TextView txt_jumlahsiswa, txt_totalharga, txtnomorkegiatan;
     Button btnkonfirmadmin, btnkembaliberanda;
 
     String id, id_transaksi;
@@ -77,15 +79,20 @@ public class PembayaranSingkong extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pembayaran_singkong);
 
+/*        setActionBarTitle("Yeaay Reservasi berhasil!");
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back);// set drawable icon
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
+
         sharedpreferences = getSharedPreferences(LoginUser.my_shared_preferences, Context.MODE_PRIVATE);
         id = sharedpreferences.getString("id", "0");
-        Toast.makeText(this, "ini id ke-" + id, Toast.LENGTH_SHORT).show();
+       //// Toast.makeText(this, "ini id ke-" + id, Toast.LENGTH_SHORT).show();
 
         id_transaksi = sharedpreferences.getString("id_transaksi", "0");
-        Toast.makeText(this, "ini id tansaksi ke-" + id_transaksi, Toast.LENGTH_SHORT).show();
+      ///  Toast.makeText(this, "ini id tansaksi ke-" + id_transaksi, Toast.LENGTH_SHORT).show();
 
         txt_jumlahsiswa = findViewById(R.id.txt_jumlahsiswa);
         txt_totalharga = findViewById(R.id.txt_totalharga);
+        txtnomorkegiatan = findViewById(R.id.txtnomorkegiatan);
 
         btnkonfirmadmin = findViewById(R.id.btnkonfirmadmin);
         btnkonfirmadmin.setOnClickListener(new View.OnClickListener() {
@@ -124,12 +131,13 @@ public class PembayaranSingkong extends AppCompatActivity {
                 JSONResponse jsonResponse = response.body();
 
                 mArrayListTransaksi = new ArrayList<>(Arrays.asList(jsonResponse.getTransaksi()));
+                String nomor_kegiatan = mArrayListTransaksi.get(0).getNomor_kegiatan();
                 String jumlah_siswa = mArrayListTransaksi.get(0).getJumlah_siswa();
-                String total_harga = mArrayListTransaksi.get(0).getTotal_harga();
+                String total_bayar = mArrayListTransaksi.get(0).getTotal_bayar();
 
-
+                txtnomorkegiatan.setText(nomor_kegiatan);
                 txt_jumlahsiswa.setText(jumlah_siswa);
-                txt_totalharga.setText(total_harga);
+                txt_totalharga.setText(total_bayar);
 
             }
 
@@ -224,6 +232,18 @@ public class PembayaranSingkong extends AppCompatActivity {
 
     }
 
+    private void setActionBarTitle(String title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        Intent intent = new Intent(getApplicationContext(), ListPaket.class);
+        startActivity(intent);
+        return true;
+    }
 
 
 

@@ -44,6 +44,9 @@ public interface RequestInterface {
 
  //detail tanggalbooking
  @GET("fieldtripkandri/User/get_tanggal_booking.php")
- Call<JSONResponse> getData_tanggal(@Query("id_transaksi") String id_transaksi);
+ Call<JSONResponse> getData_tanggal(@Query("date") String date);
+
+ @GET("User/list_transaksi.php")
+ Call<JSONResponse> getStatuspesanan(@Query("id") String id);
 
 }

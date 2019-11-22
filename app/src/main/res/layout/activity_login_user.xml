@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+    android:background="@drawable/bg1"
     tools:context=".LoginRegister.LoginUser">
+
     <ImageView
         android:id="@+id/image12"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:paddingHorizontal="10dp"
         android:paddingTop="45dp"
-        android:layout_marginBottom="15dp" />
+        android:layout_marginBottom="1dp" />
 
 
 
@@ -23,6 +24,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_below="@+id/image12"
+            android:background="@drawable/white_right_corner"
             android:elevation="4dp"
             android:paddingTop="15dp"
             android:orientation="vertical"
@@ -34,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="LOGIN MEMBER"
+                android:visibility="gone"
                 android:textStyle="bold"
                 android:layout_below="@+id/image12"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -55,7 +58,7 @@
                     android:inputType="textEmailAddress"
                     android:singleLine="true"
                     android:textColor="@color/colorBlack"
-                    android:textColorHint="@color/colorAbuabu"
+                    android:textColorHint="@color/colorBlack"
                     android:textSize="17sp"/>
             </android.support.design.widget.TextInputLayout>
 

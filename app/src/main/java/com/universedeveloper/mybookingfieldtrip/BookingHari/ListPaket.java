@@ -27,6 +27,10 @@ public class ListPaket extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_paket);
 
+        setActionBarTitle("List paket kegiatan");
+      //  getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back);// set drawable icon
+      ///  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         sharedpreferences = getSharedPreferences(LoginUser.my_shared_preferences, Context.MODE_PRIVATE);
         id = sharedpreferences.getString("id", "0");
         Toast.makeText(this, "ini id ke-"+ id, Toast.LENGTH_SHORT).show();
@@ -74,5 +78,17 @@ public class ListPaket extends AppCompatActivity {
         });
 
 
+    }
+
+    private void setActionBarTitle(String title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

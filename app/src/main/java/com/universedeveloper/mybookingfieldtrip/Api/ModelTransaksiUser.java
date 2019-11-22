@@ -22,6 +22,28 @@ public class ModelTransaksiUser {
     @SerializedName("total_harga") //ini yg ada di json
     private String total_harga;
 
+    public String getTotal_bayar() {
+        return total_bayar;
+    }
+
+    public void setTotal_bayar(String total_bayar) {
+        this.total_bayar = total_bayar;
+    }
+
+    public String getNomor_kegiatan() {
+        return nomor_kegiatan;
+    }
+
+    public void setNomor_kegiatan(String nomor_kegiatan) {
+        this.nomor_kegiatan = nomor_kegiatan;
+    }
+
+    @SerializedName("nomor_kegiatan") //ini yg ada di json
+    private String nomor_kegiatan;
+
+    @SerializedName("total_bayar") //ini yg ada di json
+    private String total_bayar;
+
     public String getId_transaksi() { return id_transaksi; }
 
     public void setId_transaksi(String id_transaksi) { this.id_transaksi = id_transaksi; }

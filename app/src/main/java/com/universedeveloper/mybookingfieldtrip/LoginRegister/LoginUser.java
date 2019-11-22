@@ -100,7 +100,8 @@ public class LoginUser extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                checkLogin();
+               checkLogin();
+
             }
         });
 
@@ -134,7 +135,7 @@ public class LoginUser extends AppCompatActivity {
                     if (success == 1) {
                         id = jObj.getString(TAG_ID);
                         value_nama_lengkap = jObj.getString(TAG_NAMA_LENGKAP);
-                        value_token = jObj.getString(TAG_TOKEN);
+                       // value_token = jObj.getString(TAG_TOKEN);
                         id = jObj.getString(TAG_ID);
 
                         Log.e("Successfully Login!", jObj.toString());

@@ -8,6 +8,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "BASE_URL", "\"http://universedeveloper.com/gudangandroid/fieldtripkandri/\""
     }
@@ -79,4 +80,9 @@ dependencies {
 
     //Kalender
     implementation 'com.github.prolificinteractive:material-calendarview:1.4.2'
+
+    //designTiket
+    implementation 'com.github.mreram:ticketview:1.0.0'
+
+    implementation 'com.android.support:multidex:1.0.3'
 }

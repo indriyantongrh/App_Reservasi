@@ -46,12 +46,12 @@ public class MainActivity extends AppCompatActivity {
             Fragment fragment;
             switch (item.getItemId()) {
                 case R.id.navigation_beranda:
-                    toolbar.setTitle("Beranda");
+                    //toolbar.setTitle("Selamat Datang");
                     fragment = new Beranda();
                     loadFragment(fragment);
                     return true;
                 case R.id.navigation_ukm:
-                    toolbar.setTitle("Selamat Datang di UMKM");
+                    toolbar.setTitle("Belanja");
                     fragment = new VideoKegiatan();
                     loadFragment(fragment);
                     return true;
@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         fragment.setArguments(bundle);
         // load fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
         transaction.replace(R.id.frame_container, fragment);
         //transaction.addToBackStack(null);
         transaction.commit();

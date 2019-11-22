@@ -47,7 +47,7 @@ import org.json.JSONArray;
 public class LihatJadwal extends AppCompatActivity {
     TextView textView;
 
-    String tanggal_booking, nama_sekolah, id_transaksi;
+    String tanggal_booking, nama_sekolah, id_transaksi,datedisplay;
     SharedPreferences sharedpreferences;
     private ArrayList<ModelTanggal> mArrayListTanggal;
     String tag_json_obj = "json_obj_req";
@@ -64,8 +64,10 @@ public class LihatJadwal extends AppCompatActivity {
         setContentView(R.layout.activity_lihat_jadwal);
 
         MaterialCalendarView materialCalendarView = (MaterialCalendarView) findViewById(R.id.calendarView);
+
         textView = findViewById(R.id.textView);
 
+//// coding lawas
       materialCalendarView.state().edit()
                 .setFirstDayOfWeek(Calendar.MONDAY)
                 .setMinimumDate(CalendarDay.from(2018, 1, 1))
@@ -76,7 +78,14 @@ public class LihatJadwal extends AppCompatActivity {
         materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-                ////AmbilTanggal();
+             ////   String datedisplay = onDateSelected(date.getDate().get);
+              ////  textView.setText(datedisplay);
+                Toast.makeText(LihatJadwal.this, "Hari ini Tanggal " + date ,Toast.LENGTH_SHORT).show();
+
+
+
+
+                AmbilTanggal();
 
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl(BASE_URL)
@@ -84,7 +93,7 @@ public class LihatJadwal extends AppCompatActivity {
                         .build();
 
                 RequestInterface request = retrofit.create(RequestInterface.class);
-                Call<JSONResponse> call = request.getData_tanggal(id_transaksi);
+                Call<JSONResponse> call = request.getData_tanggal(tanggal_booking);
                 call.enqueue(new Callback<JSONResponse>() {
                     @Override
                     public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
@@ -96,7 +105,7 @@ public class LihatJadwal extends AppCompatActivity {
 
 
                         textView.setText(nama_sekolah);
-                        Toast.makeText(LihatJadwal.this, "Reservasi dari " + nama_sekolah ,Toast.LENGTH_SHORT).show();
+                        ////Toast.makeText(LihatJadwal.this, "Reservasi dari " + nama_sekolah ,Toast.LENGTH_SHORT).show();
                         ////  txtnomorhp.setText(nomor_hp);
 
                     }
@@ -107,7 +116,7 @@ public class LihatJadwal extends AppCompatActivity {
                     }
                 });
                //// textView.setText(FORMATTER.format(MaterialCalendarView.getDate()));
-                ////Toast.makeText(LihatJadwal.this, "Reservasi dari " + nama_sekolah ,Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -118,7 +127,7 @@ public class LihatJadwal extends AppCompatActivity {
 
     }
 
-/*    public void AmbilTanggal(){
+   public void AmbilTanggal(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -146,7 +155,7 @@ public class LihatJadwal extends AppCompatActivity {
                 Log.d("Error",t.getMessage());
             }
         });
-    }*/
+    }
 
 }
 

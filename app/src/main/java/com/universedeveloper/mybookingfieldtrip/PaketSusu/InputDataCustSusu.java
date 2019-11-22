@@ -38,6 +38,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -48,6 +50,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -75,7 +78,7 @@ public class InputDataCustSusu extends AppCompatActivity implements View.OnClick
     public final static String TAG_ID_EMAIL = "email";
 
     EditText txttanggalbooking, txtnamalengkap, txtnomorhp, txtnamasd, txtjumlahsiswa, txtjumlahguru, txtjumlahsupir ;
-    TextView jumlahharga;
+    TextView jumlahharga,jumlahdp;
     RadioGroup radiogroup;
     RadioButton radioButton,radiobayarfull, radiobayardp;
     ImageButton btntanggal;
@@ -87,12 +90,21 @@ public class InputDataCustSusu extends AppCompatActivity implements View.OnClick
     private static final String url_ambil_id_transaksi = "http://gudangandroid.universedeveloper.com/fieldtripkandri/User/cek_idtransaksi.php";
 
     ConnectivityManager conMgr;
-    private String url = "http://universedeveloper.com/gudangandroid/fieldtripkandri/User/inputdatapaketsusu.php";
+    private String url = "http://universedeveloper.com/gudangandroid/fieldtripkandri/User/inputdata.php";
+
+    DecimalFormat kursindonesia;
+    Double rupiah,rupiahspinner;
+    DecimalFormatSymbols formatRp;
+    Double uangdibayarkan,result,uangdp,jumlahsiswa,uangadmin,jumlahbayar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_data_customer_susu);
+
+/*        setActionBarTitle("Reservasi sekarang!");
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back);// set drawable icon
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
         sharedpreferences = getSharedPreferences(LoginUser.my_shared_preferences, Context.MODE_PRIVATE);
         id = sharedpreferences.getString("id", "0");
@@ -112,37 +124,61 @@ public class InputDataCustSusu extends AppCompatActivity implements View.OnClick
         txtjumlahsupir = findViewById(R.id.txtjumlahsupir);
 
         jumlahharga = findViewById(R.id.jumlahharga);
-
+        jumlahdp = findViewById(R.id.jumlahdp);
         btncekharga = findViewById(R.id.btncekharga);
 
         radiobayardp = findViewById(R.id.radiobayardp);
 
         radiogroup = (RadioGroup) findViewById(R.id.radiogroup);
+        radiobayarfull = findViewById(R.id.radiobayarfull);
+        radiobayardp = findViewById(R.id.radiobayardp);
 
-      /*  radiogroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        radiogroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch(checkedId){
+                    case R.id.radiobayarfull:
+                        // do operations specific to this selection
+                        jumlahsiswa = Double.parseDouble(txtjumlahsiswa.getText().toString());
+                        uangdibayarkan = jumlahsiswa* 80000;  //perhitungan
+                        jumlahdp.setText(Double.toString(uangdibayarkan));  //output
+
+
+                        uangdibayarkan = Double.parseDouble(jumlahdp.getText().toString());
+                        kursindonesia = (DecimalFormat)
+                                DecimalFormat.getCurrencyInstance();
+                        formatRp = new DecimalFormatSymbols();
+                        formatRp.setCurrencySymbol("Rp.");
+                        formatRp.setMonetaryDecimalSeparator(',');
+                        formatRp.setGroupingSeparator('.');
+                        kursindonesia.setDecimalFormatSymbols(formatRp);
+
+                        jumlahdp.setText(String.valueOf(kursindonesia.format(uangdibayarkan)));
+                        break;
                     case R.id.radiobayardp:
                         // do operations specific to this selection
-                        Locale localeID = new Locale("in", "ID");
-                        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
-                        String b1=jumlahharga.getText().toString();
-                        double bayardp = Double.parseDouble(b1);
-                        double result = bayardp / 2 ;
-                        ///jumlahharga.setText("Rp. " +Double.toString(result));
-                        jumlahharga.setText(formatRupiah.format(result));
-                        break;
-*//*                    case R.id.radio1:
-                        // do operations specific to this selection
-                        break;
-                    case R.id.radio2:
-                        // do operations specific to this selection
-                        break;*//*
+                        //Toast.makeText(InputDataCustomers.this, radiobayarfull.getText(), Toast.LENGTH_SHORT).show();
+
+
+                        uangdp = uangdibayarkan / 2;  //perhitungan
+                        jumlahdp.setText(Double.toString(uangdp));  //output
+
+
+                        uangdp = Double.parseDouble(jumlahdp.getText().toString());
+                        kursindonesia = (DecimalFormat)
+                                DecimalFormat.getCurrencyInstance();
+                        formatRp = new DecimalFormatSymbols();
+                        formatRp.setCurrencySymbol("Rp.");
+                        formatRp.setMonetaryDecimalSeparator(',');
+                        formatRp.setGroupingSeparator('.');
+                        kursindonesia.setDecimalFormatSymbols(formatRp);
+
+                        jumlahdp.setText(String.valueOf(kursindonesia.format(uangdp)));
+
                 }
             }
         });
-*/
+
         btnbayar = findViewById(R.id.btnbayar);
         btnbayar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,14 +213,14 @@ public class InputDataCustSusu extends AppCompatActivity implements View.OnClick
 
         ambilProfilUser();
 
-        btntanggal.setOnClickListener(this);
+        txttanggalbooking.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btntanggal:
+            case R.id.txttanggalbooking:
 
                 Calendar c = Calendar.getInstance();
                 mYear = c.get(Calendar.YEAR);
@@ -214,13 +250,28 @@ public class InputDataCustSusu extends AppCompatActivity implements View.OnClick
 
                 {
 
-                    Locale localeID = new Locale("in", "ID");
+                   /* Locale localeID = new Locale("in", "ID");
                     NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
 
                     double jumlahsiswa = Double.parseDouble(txtjumlahsiswa.getText().toString());
                     double result = jumlahsiswa * 80000;
                     ///jumlahharga.setText("Rp. " +Double.toString(result));
-                    jumlahharga.setText(formatRupiah.format(result));
+                    jumlahharga.setText(formatRupiah.format(result));*/
+                    jumlahsiswa = Double.parseDouble(txtjumlahsiswa.getText().toString());
+                    uangdibayarkan = jumlahsiswa* 80000;  //perhitungan
+                    jumlahharga.setText(Double.toString(uangdibayarkan));  //output
+
+
+                    uangdibayarkan = Double.parseDouble(jumlahharga.getText().toString());
+                    kursindonesia = (DecimalFormat)
+                            DecimalFormat.getCurrencyInstance();
+                    formatRp = new DecimalFormatSymbols();
+                    formatRp.setCurrencySymbol("Rp.");
+                    formatRp.setMonetaryDecimalSeparator(',');
+                    formatRp.setGroupingSeparator('.');
+                    kursindonesia.setDecimalFormatSymbols(formatRp);
+
+                    jumlahharga.setText(String.valueOf(kursindonesia.format(uangdibayarkan)));
 
 
                 }
@@ -276,7 +327,7 @@ public class InputDataCustSusu extends AppCompatActivity implements View.OnClick
         /*Toast.makeText(this,"Pembayaran" + radioButton.getText(), Toast.LENGTH_SHORT).show();*/
     }
 
-    private void PostDataCustomers(final String nama_lengkap,final String nomor_hp, final String nama_sekolah,final String tanggal_booking ,final String jumlah_siswa,final String jumlah_guru,final String jumlah_supir,final String total_harga,final String  keterangan) {
+   /* private void PostDataCustomers(final String nama_lengkap,final String nomor_hp, final String nama_sekolah,final String tanggal_booking ,final String jumlah_siswa,final String jumlah_guru,final String jumlah_supir,final String total_harga,final String  keterangan) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Silahkan Tunggu ...");
@@ -301,12 +352,12 @@ public class InputDataCustSusu extends AppCompatActivity implements View.OnClick
                         Toast.makeText(getApplicationContext(),
                                 jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
 
-   /*                     txtnamalengkap.setText("");
+   *//*                     txtnamalengkap.setText("");
                         ///  txtusername.setText("");
                         txtemail.setText("");
                         txtpassword.setText("");
                         /// txtconfirmpassword.setText("");
-                        txttelepon.setText("");*/
+                        txttelepon.setText("");*//*
 
                     } else {
                         Toast.makeText(getApplicationContext(),
@@ -336,15 +387,112 @@ public class InputDataCustSusu extends AppCompatActivity implements View.OnClick
             protected Map<String, String> getParams() {
                 // Posting parameters to login url
                 Map<String, String> params = new HashMap<String, String>();
+
+                final int random = new Random().nextInt(10000) + 20; // [0, 60] + 20 => [20, 80]
                 params.put("id", id);
                 params.put("nama_lengkap", nama_lengkap);
                 params.put("nomor_hp", nomor_hp);
+                params.put("nomor_kegiatan", "#FieldTrip"+random);
                 params.put("nama_sekolah", txtnamasd.getText().toString());
                 params.put("tanggal_booking", txttanggalbooking.getText().toString());
-                params.put("jumlah_siswa", txtjumlahsiswa.getText().toString());
-                params.put("jumlah_guru", txtjumlahguru.getText().toString());
-                params.put("jumlah_supir", txtjumlahsupir.getText().toString());
+                params.put("jumlah_siswa", txtjumlahsiswa.getText().toString()+" siswa");
+                params.put("jumlah_guru", txtjumlahguru.getText().toString()+" orang");
+                params.put("jumlah_supir", txtjumlahsupir.getText().toString()+" orang");
                 params.put("total_harga", jumlahharga.getText().toString());
+                params.put("total_bayar", jumlahdp.getText().toString());
+   *//*             params.put("jumlah_dp", jumlah_dp);
+                params.put("jumlah_kekurangan", jumlah_kekurangan);*//*
+                params.put("keterangan", radioButton.getText().toString());
+                params.put("id_paket", "02");
+                params.put("jenis_paket", "paket susu");
+                params.put("status_transaksi", "Belum Lunas");
+
+                return params;
+            }
+
+        };
+
+        // Adding request to request queue
+
+        AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
+        ///AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
+
+    }
+*/
+
+    private void PostDataCustomers(final String nama_lengkap,final String nomor_hp, final String nama_sekolah,final String tanggal_booking ,final String jumlah_siswa,final String jumlah_guru,final String jumlah_supir,final String total_harga,final String  keterangan) {
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Silahkan Tunggu ...");
+        showDialog();
+        StringRequest strReq = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.e(TAG, "Input Response: " + response.toString());
+                hideDialog();
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    success = jObj.getInt(TAG_SUCCESS);
+
+                    // Check for error node in json
+                    if (success == 1) {
+
+                        Log.e("Input Berhasil!", jObj.toString());
+
+                        goToPayment();
+                        Toast.makeText(getApplicationContext(),
+                                jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+
+   /*                     txtnamalengkap.setText("");
+                        ///  txtusername.setText("");
+                        txtemail.setText("");
+                        txtpassword.setText("");
+                        /// txtconfirmpassword.setText("");
+                        txttelepon.setText("");*/
+
+                    } else {
+                        Toast.makeText(getApplicationContext(),
+                                jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+
+                    }
+                } catch (JSONException e) {
+                    // JSON error
+                    e.printStackTrace();
+                }
+
+            }
+        }, new com.android.volley.Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Input Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+
+                hideDialog();
+
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to login url
+                Map<String, String> params = new HashMap<String, String>();
+
+                final int random = new Random().nextInt(10000) + 20; // [0, 60] + 20 => [20, 80]
+                params.put("id", id);
+                params.put("nama_lengkap", nama_lengkap);
+                params.put("nomor_hp", nomor_hp);
+                params.put("nomor_kegiatan", "#FieldTrip"+random);
+                params.put("nama_sekolah", txtnamasd.getText().toString());
+                params.put("tanggal_booking", txttanggalbooking.getText().toString());
+                params.put("jumlah_siswa", txtjumlahsiswa.getText().toString()+" siswa");
+                params.put("jumlah_guru", txtjumlahguru.getText().toString()+" orang");
+                params.put("jumlah_supir", txtjumlahsupir.getText().toString()+" orang");
+                params.put("total_harga", jumlahharga.getText().toString());
+                params.put("total_bayar", jumlahdp.getText().toString());
    /*             params.put("jumlah_dp", jumlah_dp);
                 params.put("jumlah_kekurangan", jumlah_kekurangan);*/
                 params.put("keterangan", radioButton.getText().toString());
@@ -439,6 +587,19 @@ public class InputDataCustSusu extends AppCompatActivity implements View.OnClick
         SimpleDateFormat frmt = new SimpleDateFormat("ddMMyy");
         String dateString = frmt.format(current);
         return dateString;
+    }
+
+
+    private void setActionBarTitle(String title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
 }
