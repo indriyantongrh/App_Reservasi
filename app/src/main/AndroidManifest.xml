@@ -23,9 +23,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".KonfirmasiPembayaran.DetailKonfirmasi"
-            android:theme="@style/Tanpajudul" ></activity>
-        <activity android:name=".KonfirmasiPembayaran.KonfirmasiPembayaran"
+        <activity android:name=".LihatJadwal.ListLihatJadwal"
+            android:theme="@style/Tanpajudul"></activity>
+        <activity
+            android:name=".KonfirmasiPembayaran.DetailKonfirmasi"
+            android:theme="@style/Tanpajudul" />
+        <activity
+            android:name=".KonfirmasiPembayaran.KonfirmasiPembayaran"
             android:theme="@style/Tanpajudul" />
         <activity
             android:name=".LihatJadwal.LihatJadwal"
@@ -59,8 +63,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
-           />
+        <activity android:name=".MainActivity" />
         <activity android:name=".LoginRegister.Register" />
     </application>
 

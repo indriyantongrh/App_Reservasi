@@ -314,7 +314,6 @@
 
 
 
-
                 <GridLayout
                     android:id="@+id/mainGrid"
                     android:layout_width="match_parent"

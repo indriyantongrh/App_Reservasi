@@ -43,10 +43,14 @@ public interface RequestInterface {
  Call<JSONResponse> getTransaksi(@Query("id") String id);
 
  //detail tanggalbooking
- @GET("fieldtripkandri/User/get_tanggal_booking.php")
- Call<JSONResponse> getData_tanggal(@Query("date") String date);
+ @GET("fieldtripkandri/User/get_date_booking.php")
+ Call<JSONResponse> getData_tanggal(@Query("tanggal_booking") String date);
 
  @GET("User/list_transaksi.php")
  Call<JSONResponse> getStatuspesanan(@Query("id") String id);
+
+ @GET("User/list_jadwal_kegiatan.php")
+ Call<JSONResponse> getJadwalKegiatan();
+
 
 }

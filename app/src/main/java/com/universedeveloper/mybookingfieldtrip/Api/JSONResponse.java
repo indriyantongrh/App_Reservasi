@@ -1,6 +1,7 @@
 package com.universedeveloper.mybookingfieldtrip.Api;
 
 import com.universedeveloper.mybookingfieldtrip.KonfirmasiPembayaran.ModelKonfirmasiPembayaran;
+import com.universedeveloper.mybookingfieldtrip.LihatJadwal.ModelJadwalKegiatan;
 
 public class JSONResponse {
     private ModelMenu[] menu;
@@ -31,6 +32,12 @@ public class JSONResponse {
 
     public ModelKonfirmasiPembayaran[] getStatusPesanan() {
         return listpesanan;
+    }
+
+    private ModelJadwalKegiatan[] listjadwalkegiatan;
+
+    public ModelJadwalKegiatan[] getJadwalKegiatan() {
+        return listjadwalkegiatan;
     }
 
 }

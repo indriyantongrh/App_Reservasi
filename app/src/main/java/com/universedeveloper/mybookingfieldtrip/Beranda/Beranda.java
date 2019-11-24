@@ -21,6 +21,7 @@ import com.universedeveloper.mybookingfieldtrip.BookingHari.ListPaket;
 import com.universedeveloper.mybookingfieldtrip.BookingHari.ListPaketOutbound;
 import com.universedeveloper.mybookingfieldtrip.KonfirmasiPembayaran.KonfirmasiPembayaran;
 import com.universedeveloper.mybookingfieldtrip.LihatJadwal.LihatJadwal;
+import com.universedeveloper.mybookingfieldtrip.LihatJadwal.ListLihatJadwal;
 import com.universedeveloper.mybookingfieldtrip.LoginRegister.LoginUser;
 import com.universedeveloper.mybookingfieldtrip.R;
 import android.widget.LinearLayout;
@@ -164,7 +165,7 @@ public class Beranda extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(getActivity(), LihatJadwal.class);
+                Intent intent = new Intent(getActivity(), ListLihatJadwal.class);
                 getActivity().startActivity(intent);
             }
 

@@ -80,12 +80,8 @@ public class LihatJadwal extends AppCompatActivity {
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
              ////   String datedisplay = onDateSelected(date.getDate().get);
               ////  textView.setText(datedisplay);
-                Toast.makeText(LihatJadwal.this, "Hari ini Tanggal " + date ,Toast.LENGTH_SHORT).show();
 
-
-
-
-                AmbilTanggal();
+               /// AmbilTanggal();
 
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl(BASE_URL)
@@ -100,10 +96,10 @@ public class LihatJadwal extends AppCompatActivity {
                         JSONResponse jsonResponse = response.body();
 
                         mArrayListTanggal = new ArrayList<>(Arrays.asList(jsonResponse.getData_tanggal()));
+                        String tanggal_booking = mArrayListTanggal.get(0).getTanggal_booking();
                         String nama_sekolah = mArrayListTanggal.get(0).getNama_sekolah();
                         ///  String nomor_hp = mArrayListUser.get(0).getTelepon_user();
-
-
+                        Toast.makeText(LihatJadwal.this, "Jadawal dari " + nama_sekolah  + tanggal_booking,Toast.LENGTH_SHORT).show();
                         textView.setText(nama_sekolah);
                         ////Toast.makeText(LihatJadwal.this, "Reservasi dari " + nama_sekolah ,Toast.LENGTH_SHORT).show();
                         ////  txtnomorhp.setText(nomor_hp);
@@ -115,7 +111,7 @@ public class LihatJadwal extends AppCompatActivity {
                         Log.d("Error",t.getMessage());
                     }
                 });
-               //// textView.setText(FORMATTER.format(MaterialCalendarView.getDate()));
+                ////textView.setText(FORMATTER.format(MaterialCalendarView.getTanggal_booking()));
 
             }
         });
