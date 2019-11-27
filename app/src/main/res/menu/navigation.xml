@@ -11,8 +11,4 @@
         android:icon="@drawable/belanja"
         android:title="@string/title_umkm" />
 
-    <item
-        android:id="@+id/navigation_akun"
-        android:icon="@drawable/ic_user"
-        android:title="@string/title_akun" />
 </menu>

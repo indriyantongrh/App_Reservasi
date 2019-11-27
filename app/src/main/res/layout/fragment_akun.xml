@@ -26,14 +26,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardElevation="5dp"
-
             app:cardCornerRadius="7dp"
             android:layout_margin="5dp"
             android:background = "#00ffffff"
             tools:ignore="NotSibling">
             <RelativeLayout
+                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="wrap_content">
 
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -41,7 +41,6 @@
                     android:layout_width="120dp"
                     android:layout_height="110dp"
                     android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="12dp"
                     android:clickable="true"
                     android:elevation="5dp"
@@ -69,18 +68,21 @@
                     android:elevation="6dp"
                     android:visibility="invisible"
                     android:layout_alignRight="@+id/image" />
+
                 <TextView
                     android:id="@+id/txt_nama_akun"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/btn_simpan_gambar"
-                    android:gravity="center"
+                    android:layout_marginLeft="125dp"
                     android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/btn_simpan_gambar"
+                    android:fontFamily="@font/sairasemibold"
+                    android:gravity="center"
+                    android:text="Nama user"
                     android:textAppearance="@android:style/TextAppearance.WindowTitle"
                     android:textColor="#000000"
                     android:textSize="19sp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
 
@@ -104,6 +106,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
                     android:inputType="text"
+                    android:fontFamily="@font/sairasemibold"
                     android:singleLine="true"
                     android:text="Telepon"
                     android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
@@ -116,6 +119,7 @@
                     android:layout_alignEnd="@+id/View3"
                     android:layout_marginTop="15dp"
                     android:singleLine="true"
+                    android:fontFamily="@font/sairaregular"
                     android:textAlignment="viewEnd"
                     android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
                     android:textColor="#8b8a8a"
@@ -145,6 +149,7 @@
                     android:layout_marginTop="15dp"
                     android:inputType="text"
                     android:singleLine="true"
+                    android:fontFamily="@font/sairasemibold"
                     android:text="Email"
                     android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
                     android:textSize="15sp" />
@@ -158,6 +163,7 @@
                     android:layout_toStartOf="@id/edit1"
                     android:layout_marginEnd="5dp"
                     android:singleLine="true"
+                    android:fontFamily="@font/sairaregular"
                     android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
                     android:textColor="#8b8a8a"
                     android:textSize="15sp"
@@ -185,7 +191,7 @@
                     android:id="@+id/View4"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_below="@id/txtemail"
+
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="5dp"
@@ -270,6 +276,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_below="@+id/card2"
+                android:fontFamily="@font/sairasemibold"
                 android:layout_centerHorizontal="true"
                 android:backgroundTint="@color/colormerah"
                 android:textColor="#ffffff"

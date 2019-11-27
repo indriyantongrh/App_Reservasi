@@ -1,5 +1,6 @@
 package com.universedeveloper.mybookingfieldtrip.Beranda;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,6 +25,8 @@ import com.universedeveloper.mybookingfieldtrip.LihatJadwal.LihatJadwal;
 import com.universedeveloper.mybookingfieldtrip.LihatJadwal.ListLihatJadwal;
 import com.universedeveloper.mybookingfieldtrip.LoginRegister.LoginUser;
 import com.universedeveloper.mybookingfieldtrip.R;
+
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,7 +57,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Beranda extends Fragment {
     private ArrayList<ModelProfilUser> mArrayListUser;
     String id;
-    TextView txt_nama_akun;
+    LinearLayout btn_logout;
+    public final static String TAG_ID_USER = "id";
+    public final static String TAG_ID_EMAIL = "email";
+    TextView txt_nama_akun,txt_email,txt_nama_user,txt_nomortelepon;
+    ImageView btn_profile,btn_reservasi,btn_lihat_jadwal,btn_konfirmasi_payment,btn_waadmin;
     CardView btn_bookingtanggal, btnbungiadmin, btnjadawal,btnkonfirmasi;
     SharedPreferences sharedpreferences;
     public static final String BASE_URL = "http://universedeveloper.com/gudangandroid/";
@@ -114,6 +121,10 @@ public class Beranda extends Fragment {
         // Inflate the layout for this fragment
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         txt_nama_akun = rootView.findViewById(R.id.txt_nama_akun);
+        txt_nama_user = rootView.findViewById(R.id.txt_nama_user);
+        txt_email = rootView.findViewById(R.id.txt_email);
+        txt_nomortelepon = rootView.findViewById(R.id.txt_nomortelepon);
+        btn_logout = rootView.findViewById(R.id.btn_logout);
         sharedpreferences = getActivity().getSharedPreferences(LoginUser.my_shared_preferences, Context.MODE_PRIVATE);
         id = sharedpreferences.getString("id", "0");
         Toast.makeText(getActivity(), "ini id ke-"+ id, Toast.LENGTH_SHORT).show();
@@ -123,8 +134,26 @@ public class Beranda extends Fragment {
         mLinearLayout = (LinearLayout) rootView.findViewById(R.id.pagesContainer);
         setupSlider();
 
-        btn_bookingtanggal = rootView.findViewById(R.id.btn_bookingtanggal);
-        btn_bookingtanggal.setOnClickListener(new View.OnClickListener() {
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+                sharedpreferences = getActivity().getSharedPreferences(LoginUser.my_shared_preferences, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putBoolean(LoginUser.session_status, false);
+                editor.putString(TAG_ID_USER, null);
+                editor.putString(TAG_ID_EMAIL, null);
+                editor.commit();
+                editor.apply();
+
+                Intent intent = new Intent(getActivity(), LoginUser.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_reservasi = rootView.findViewById(R.id.btn_reservasi);
+        btn_reservasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -134,8 +163,8 @@ public class Beranda extends Fragment {
 
         });
 
-        btnkonfirmasi = rootView.findViewById(R.id.btnkonfirmasi);
-        btnkonfirmasi.setOnClickListener(new View.OnClickListener() {
+        btn_konfirmasi_payment = rootView.findViewById(R.id.btn_konfirmasi_payment);
+        btn_konfirmasi_payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -145,8 +174,8 @@ public class Beranda extends Fragment {
 
         });
 
-        btnbungiadmin = rootView.findViewById(R.id.btnbungiadmin);
-        btnbungiadmin.setOnClickListener(new View.OnClickListener() {
+        btn_waadmin = rootView.findViewById(R.id.btn_waadmin);
+        btn_waadmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentWhatsapp = new Intent("android.intent.action.MAIN");
@@ -160,8 +189,8 @@ public class Beranda extends Fragment {
 
         });
 
-        btnjadawal= rootView.findViewById(R.id.btnjadawal);
-        btnjadawal.setOnClickListener(new View.OnClickListener() {
+        btn_lihat_jadwal= rootView.findViewById(R.id.btn_lihat_jadwal);
+        btn_lihat_jadwal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -237,9 +266,14 @@ public class Beranda extends Fragment {
 
                 mArrayListUser = new ArrayList<>(Arrays.asList(jsonResponse.getDatauser()));
                 String nama_lengkap = mArrayListUser.get(0).getNama_user();
+                String nomor_hp = mArrayListUser.get(0).getTelepon_user();
+                String email = mArrayListUser.get(0).getEmail_user();
 
 
                 txt_nama_akun.setText(nama_lengkap);
+                txt_nama_user.setText(nama_lengkap);
+                txt_nomortelepon.setText(nomor_hp);
+                txt_email.setText(email);
 
             }
 

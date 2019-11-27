@@ -12,17 +12,22 @@
    <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:layout_height="95dp"
+        android:background="@color/colorBiruTwitter"
         app:popupTheme="@style/ThemeOverlay.AppCompat"
         tools:ignore="MissingConstraints">
+
+
 
         <TextView
             android:id="@+id/text_nama_akun"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Halo! "
-            android:textSize="23dp"
+            android:text="Halo, "
+            android:paddingBottom="30dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/sairasemibold"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="#fff"/>
 
@@ -30,10 +35,15 @@
             android:id="@+id/txt_nama_akun"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="23dp"
+            android:textSize="20dp"
+            android:paddingBottom="30dp"
+            android:fontFamily="@font/sairasemibold"
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@+id/text_nama_akun"
             android:textColor="#fff"/>
+
+
+
 
     </android.support.v7.widget.Toolbar>
 
@@ -48,259 +58,155 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         >
 
-
-
-        <RelativeLayout
-            android:id="@+id/layout_top"
-          android:layout_marginTop="55dp"
-            android:layout_width="wrap_content"
-            android:layout_height="200dp">
-
-            <FrameLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.universedeveloper.mybookingfieldtrip._sliders.SliderView
-                    android:id="@+id/sliderView"
-                    android:layout_below="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-
-            </FrameLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/bg_indicator"/>
-
-            <LinearLayout
-                android:id="@+id/pagesContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal"/>
-
-        </RelativeLayout>
-
-
-    <TextView
-        android:id="@+id/textjudul"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_top"
-        android:layout_marginTop="15dp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:text="Penawaran Kami"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20sp" />
-    -------------------------------Layout Kategori masakan
-
-<!--    <RelativeLayout
-        android:id="@+id/layout_kategori_masakan1"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@+id/text_masakan"
-        android:layout_marginLeft="15dp"
-        android:gravity="center"
-
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="10dp">
-        -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;Card masakan pedas
-
         <android.support.v7.widget.CardView
-            android:id="@+id/btnprofiledesa"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="6dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
-
-                <ImageView
-                    android:id="@+id/imageView1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="20dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/profile" />
-
-                <TextView
-                    android:id="@+id/text1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:gravity="center"
-                    android:textSize="13sp"
-                    android:text="Profile Kandri"
-                    android:textColor="@color/colorBlack"/>
-
-                &lt;!&ndash;<View
-                    android:id="@+id/View1"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_above="@+id/text1"
-                    android:background="@color/colorTab2" />&ndash;&gt;
-            </RelativeLayout>
-        </android.support.v7.widget.CardView>
-        -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;Card olahan daging
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/btn_bookingtanggal"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="6dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="20dp"
-                    android:src="@drawable/booking" />
-
-                <TextView
-                    android:id="@+id/text2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:gravity="center"
-                    android:text="Booking Tanggal"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="13sp" />
-
-&lt;!&ndash;                <View
-                    android:id="@+id/View2"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_above="@+id/text2"
-                    android:background="@color/colorTab2"  />&ndash;&gt;
-            </RelativeLayout>
-        </android.support.v7.widget.CardView>
-
-    </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/layout_kategori_masakan2"
+            android:id="@+id/card012"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_below="@+id/layout_kategori_masakan1"
-            android:layout_marginLeft="15dp"
-            android:gravity="center"
+            android:layout_columnWeight="0.5"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:paddingBottom="20dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            android:clickable="true"
+            android:focusable="true">
 
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="10dp">
-            -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;Card masakan pedas
+            <LinearLayout
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginStart="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/btnbungiadmin"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="6dp">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:clickable="true"
+                    android:elevation="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:focusable="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_user1"
+                    app:civ_border_color="#FFFFFFFF"
+                    app:civ_border_width="3dp"
+                    app:civ_fill_color="#efeeee" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                <LinearLayout
+                    android:id="@+id/layemailone"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/imageView24"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="20dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/whatsapp" />
+                    <LinearLayout
+                        android:id="@+id/layemail"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/text24"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:gravity="center"
-                        android:textSize="13sp"
-                        android:text="Hubungi Admin"
-                        android:textColor="@color/colorBlack"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_email"/>
 
-                    &lt;!&ndash;<View
-                        android:id="@+id/View1"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_above="@+id/text1"
-            android:background="@color/colorTab2" />&ndash;&gt;
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
-            -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;Card olahan daging
+                        <TextView
+                            android:id="@+id/txt_email"
+                            android:textColor="#000"
+                            android:fontFamily="@font/sairaregular"
+                            android:layout_marginStart="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            />
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/btnjadawal"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="6dp">
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/laynama"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_height="wrap_content">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_poeple"/>
 
-                    <ImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="20dp"
-                        android:src="@drawable/date2" />
+                        <TextView
+                            android:id="@+id/txt_nama_user"
+                            android:textColor="#000"
+                            android:fontFamily="@font/sairaregular"
+                            android:layout_marginStart="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
 
-                    <TextView
-                        android:id="@+id/text3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:gravity="center"
-                        android:text="Lihat Jadwal"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="13sp" />
+                    </LinearLayout>
 
-                    &lt;!&ndash;                <View
-                                        android:id="@+id/View2"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="1dp"
-                                        android:layout_above="@+id/text2"
-                                        android:background="@color/colorTab2"  />&ndash;&gt;
-                </RelativeLayout>
-            </android.support.v7.widget.CardView>
+                    <LinearLayout
+                        android:id="@+id/laypone"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_height="wrap_content">
 
-        </RelativeLayout>-->
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_phone"/>
+
+                        <TextView
+                            android:id="@+id/txt_nomortelepon"
+                            android:textColor="#000"
+                            android:fontFamily="@font/sairaregular"
+                            android:layout_marginStart="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_logout"
+                android:layout_gravity="right|bottom"
+                android:orientation="horizontal"
+                android:layout_marginRight="7dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/logout"/>
+
+                <TextView
+                    android:id="@+id/txt_logout"
+                    android:textColor="#000"
+                    android:text="Logout"
+                    android:fontFamily="@font/sairaregular"
+                    android:layout_marginStart="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
         <ScrollView
             android:id="@+id/scrollView2"
+            android:layout_below="@+id/card012"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/textjudul"
             android:layout_gravity="center_horizontal">
             <LinearLayout
                 android:id="@+id/linearLayoutw2"
@@ -314,15 +220,41 @@
 
 
 
+
+                <TextView
+                    android:id="@+id/textjudul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="20dp"
+                    android:text="Pilih yang kamu suka"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/sairasemibold"
+                    android:textSize="22sp" />
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card01"
+                    android:layout_width="match_parent"
+                    android:layout_height="225dp"
+                    android:layout_columnWeight="0.5"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingBottom="20dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+
                 <GridLayout
                     android:id="@+id/mainGrid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:alignmentMode="alignMargins"
-                    android:columnCount="2"
-                    android:columnOrderPreserved="true"
-                    android:padding="14dp"
+                    android:columnCount="3"
+                    android:padding="1dp"
                     android:paddingBottom="0dp"
                     android:rowCount="2">
 
@@ -330,158 +262,135 @@
                     <!-- Row 1 -->
 
                     <!-- Column 1 -->
-                    <android.support.v7.widget.CardView
-                        android:id="@+id/btnprofiledesa"
-                        android:layout_width="0dp"
-                        android:layout_height="180dp"
-                        android:layout_columnWeight="0.5"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="16dp"
-                        app:cardCornerRadius="8dp"
-                        app:cardElevation="8dp"
-                        android:clickable="true"
-                        android:focusable="true">
+
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="16dp"
+                            android:layout_margin="1dp"
+                            android:gravity="center|center_vertical"
                             android:orientation="vertical">
 
-                            <ImageView
-                                android:layout_width="90dp"
-                                android:layout_height="90dp"
-                                android:src="@drawable/profile"
-                                android:layout_gravity="center_horizontal"
-                                />
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/btn_profile"
+                                android:layout_width="80dp"
+                                android:layout_height="60dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="12dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_profile" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Profile Kandri"
                                 android:textAlignment="center"
+                                android:fontFamily="@font/sairasemibold"
                                 android:textColor="@android:color/black"
-                                android:textSize="18sp"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
 
-                    </android.support.v7.widget.CardView>
 
                     <!-- Column 2 -->
-                    <android.support.v7.widget.CardView
-                        android:id="@+id/btn_bookingtanggal"
-                        android:layout_width="0dp"
-                        android:layout_height="180dp"
-                        android:layout_columnWeight="0.5"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="16dp"
-                        app:cardCornerRadius="8dp"
-                        app:cardElevation="8dp"
-                        android:clickable="true"
-                        android:focusable="true">
+
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="16dp"
+                            android:layout_margin="1dp"
+                            android:gravity="center|center_vertical"
                             android:orientation="vertical">
 
-                            <ImageView
-                                android:layout_width="90dp"
-                                android:layout_height="90dp"
-                                android:src="@drawable/booking"
-                                android:layout_gravity="center_horizontal"
-                                />
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/btn_reservasi"
+                                android:layout_width="80dp"
+                                android:layout_height="60dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="12dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_booking" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Reservasi Sekarang"
                                 android:textAlignment="center"
+                                android:fontFamily="@font/sairasemibold"
                                 android:textColor="@android:color/black"
-                                android:textSize="18sp"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
 
-                    </android.support.v7.widget.CardView>
 
 
                     <!-- Row 2 -->
 
                     <!-- Column 1 -->
-                    <android.support.v7.widget.CardView
-                        android:id="@+id/btnjadawal"
-                        android:layout_width="0dp"
-                        android:layout_height="180dp"
-                        android:layout_columnWeight="0.5"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="16dp"
-                        app:cardCornerRadius="8dp"
-                        app:cardElevation="8dp"
-                        android:clickable="true"
-                        android:focusable="true">
+
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="16dp"
+                            android:gravity="center|center_vertical"
+                            android:layout_margin="1dp"
                             android:orientation="vertical">
 
-                            <ImageView
-                                android:layout_width="90dp"
-                                android:layout_height="90dp"
-                                android:src="@drawable/calendar"
-                                android:layout_gravity="center_horizontal"
-                                />
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/btn_lihat_jadwal"
+                                android:layout_width="80dp"
+                                android:layout_height="60dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="12dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_date" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Lihat Jadwal Kegiatan"
                                 android:textAlignment="center"
+                                android:fontFamily="@font/sairasemibold"
                                 android:textColor="@android:color/black"
-                                android:textSize="18sp"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
 
-                    </android.support.v7.widget.CardView>
+
 
                     <!-- Column 2 -->
-                    <android.support.v7.widget.CardView
-                        android:id="@+id/btnkonfirmasi"
-                        android:layout_width="0dp"
-                        android:layout_height="180dp"
-                        android:layout_columnWeight="0.5"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="16dp"
-                        app:cardCornerRadius="9dp"
-                        app:cardElevation="8dp"
-                        android:clickable="true"
-                        android:focusable="true">
+
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="16dp"
+                            android:gravity="center|center_vertical"
                             android:orientation="vertical">
 
-                            <ImageView
-                                android:layout_width="90dp"
-                                android:layout_height="90dp"
-                                android:src="@drawable/konfirmasiorder"
-                                android:layout_gravity="center_horizontal"
-                                />
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/btn_konfirmasi_payment"
+                                android:layout_width="80dp"
+                                android:layout_height="60dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="12dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:fontFamily="@font/sairasemibold"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_konfirmasi_payment" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -489,55 +398,81 @@
                                 android:text="Konfirmasi Pembayaran"
                                 android:textAlignment="center"
                                 android:textColor="@android:color/black"
-                                android:textSize="18sp"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
 
-                    </android.support.v7.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|center_vertical"
+                        android:orientation="vertical">
 
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/btn_waadmin"
+                            android:layout_width="80dp"
+                            android:layout_height="60dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="12dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:scaleType="centerCrop"
+                            android:fontFamily="@font/sairasemibold"
+                            android:src="@drawable/ic_whatsapp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Whatsapp Admin"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
 
                 </GridLayout>
 
+                </android.support.v7.widget.CardView>
 
 
-                <android.support.v7.widget.CardView
-                    android:id="@+id/btnbungiadmin"
-                    android:layout_width="250dp"
-                    android:layout_height="50dp"
-                    android:layout_columnWeight="0.5"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:cardBackgroundColor="@color/colorPutih"
-                    app:cardCornerRadius="13dp"
-                    app:cardElevation="8dp">
+                <RelativeLayout
+                    android:id="@+id/layout_top"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:orientation="horizontal">
+                    <FrameLayout
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30sp"
-                        android:src="@drawable/whatsapp" />
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
+                        <com.universedeveloper.mybookingfieldtrip._sliders.SliderView
+                            android:id="@+id/sliderView"
+                            android:layout_below="@+id/toolbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+
+                    </FrameLayout>
+
+                    <View
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:paddingLeft="10dp"
-                        android:textSize="18sp"
-                        android:textColor="#000"
-                        android:textStyle="bold"
-                        android:text="Whatsapp Admin"/>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
+                        android:background="@drawable/bg_indicator"/>
+
+                    <LinearLayout
+                        android:id="@+id/pagesContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"/>
+
+                </RelativeLayout>
 
             </LinearLayout>
         </ScrollView>

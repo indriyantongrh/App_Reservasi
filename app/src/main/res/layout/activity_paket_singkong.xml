@@ -8,6 +8,26 @@
     android:orientation="vertical"
     tools:context=".PaketSingkong.PaketSingkong">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Paket Singkong "
+            android:gravity="center"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/sairasemibold"
+            android:textColor="#fff"/>
+
+    </android.support.v7.widget.Toolbar>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -19,6 +39,7 @@
             android:textColor="@android:color/holo_blue_dark"
             android:layout_centerInParent="true"
             android:paddingTop="50dp"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -48,7 +69,7 @@
         <android.support.v7.widget.CardView
             android:id="@+id/btn_paketsingkong"
             android:layout_width="0dp"
-            android:layout_height="480dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="0.5"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
@@ -71,6 +92,7 @@
                     android:text="@string/paketsingkong"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
+                    android:fontFamily="@font/sairaregular"
                     />
 
                 <TextView
@@ -80,6 +102,7 @@
                     android:textColor="@color/colormerah"
                     android:paddingTop="10dp"
                     android:textStyle="italic"
+                    android:fontFamily="@font/sairaregular"
                     android:textSize="18sp"
                      />
 
@@ -90,6 +113,7 @@
                     android:text="Rp. 80.000,-/pax"
                     android:textColor="@color/colorBlack"
                     android:paddingTop="10dp"
+                    android:fontFamily="@font/sairasemibold"
                     android:textStyle="bold"
                     android:textSize="23sp"
                     />
@@ -101,6 +125,7 @@
                     android:text="Minimal 30 pax"
                     android:textColor="@color/colorBlack"
                     android:textStyle="italic"
+                    android:fontFamily="@font/sairaregular"
                     android:textSize="15sp"
                     />
 
@@ -118,9 +143,8 @@
             android:layout_margin="15dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/rec_gradient"
-            android:elevation="10dp"
-            android:paddingLeft="50dp"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/sairasemibold"
             android:layout_centerVertical="true"
             android:layout_below="@id/kotak"
             android:paddingRight="50dp"

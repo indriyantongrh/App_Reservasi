@@ -55,11 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new VideoKegiatan();
                     loadFragment(fragment);
                     return true;
-                case R.id.navigation_akun:
-                    toolbar.setTitle("Akun");
-                    fragment = new Akun();
-                    loadFragment(fragment);
-                    return true;
+
             }
             return false;
         }

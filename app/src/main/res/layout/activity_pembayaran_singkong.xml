@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:text="Yeaay Reservasi Berhasil"
             android:gravity="center"
+            android:fontFamily="@font/sairasemibold"
             android:textSize="23dp"
             android:textStyle="bold"
             android:textColor="#fff"/>
@@ -81,7 +82,7 @@
         <android.support.v7.widget.CardView
             android:id="@+id/datauser"
             android:layout_width="0dp"
-            android:layout_height="210dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="0.5"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
@@ -103,6 +104,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Detail Transaksi"
+                    android:fontFamily="@font/sairasemibold"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/holo_blue_dark"
                     android:textSize="20sp"
@@ -113,6 +115,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:fontFamily="@font/sairasemibold"
                     android:layout_below="@+id/detailharga"
                     android:text="Nomor Kegiatan"
                     android:textStyle="italic"
@@ -126,6 +129,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_below="@+id/txtnomorkegiatan"
                     android:text="Harga Paket :"
+                    android:fontFamily="@font/sairasemibold"
                     android:textStyle="bold"
                     android:textColor="#000"
                     android:textSize="18sp"/>
@@ -136,6 +140,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtnomorkegiatan"
                     android:layout_toEndOf="@+id/text_email"
+                    android:fontFamily="@font/sairasemibold"
                     android:layout_toRightOf="@+id/text_email"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="0dp"
@@ -150,6 +155,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:fontFamily="@font/sairasemibold"
                     android:layout_below="@+id/text_email"
                     android:text="Juamlah Siswa :"
                     android:textStyle="bold"
@@ -165,6 +171,7 @@
                     android:layout_toRightOf="@+id/text_email"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/sairasemibold"
                     android:layout_marginBottom="5dp"
                     android:textSize="18sp"
                     android:textColor="@color/colorBlack"
@@ -178,6 +185,7 @@
                     android:layout_below="@+id/text_jumlahsiswa"
                     android:text="Jumlah yang harus dibayarkan"
                     android:textStyle="italic"
+                    android:fontFamily="@font/sairasemibold"
                     android:textColor="#000"
                     android:textSize="18sp"/>
                 <TextView
@@ -188,6 +196,7 @@
                     android:text="Rp0"
                     android:textStyle="italic|bold"
                     android:gravity="center"
+                    android:fontFamily="@font/sairasemibold"
                     android:textColor="@color/colormerah"
                     android:textSize="30sp"/>
 
@@ -233,6 +242,7 @@
                     android:text="A/N INDRIYANTO NUGROHO"
                     android:textAlignment="center"
                     android:paddingTop="15dp"
+                    android:fontFamily="@font/sairaregular"
                     android:textColor="@android:color/black"
                     android:textSize="14sp" />
 
@@ -245,6 +255,7 @@
                     android:layout_toRightOf="@+id/imagebankbari"
                     android:text="146601003158508"
                     android:textIsSelectable="true"
+                    android:fontFamily="@font/sairasemibold"
                     android:textAlignment="center"
                     android:paddingTop="5dp"
                     android:textColor="@android:color/black"
@@ -269,6 +280,7 @@
                     android:layout_toRightOf="@+id/imagebankjenius"
                     android:text="A/N INDRIYANTO NUGROHO"
                     android:textAlignment="center"
+                    android:fontFamily="@font/sairaregular"
                     android:paddingTop="29dp"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"
@@ -286,6 +298,7 @@
                     android:textAlignment="center"
                     android:paddingTop="5dp"
                     android:textColor="@android:color/black"
+                    android:fontFamily="@font/sairasemibold"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -311,6 +324,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:paddingRight="40dp"
+                android:fontFamily="@font/sairasemibold"
                 android:text="KONFIRMASI ADMIN"
                 android:textColor="#fff"
                 android:textSize="20dp"
@@ -329,6 +343,7 @@
                 android:paddingRight="80dp"
                 android:text="Kembali Beranda"
                 android:textSize="13dp"
+                android:fontFamily="@font/sairasemibold"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
 

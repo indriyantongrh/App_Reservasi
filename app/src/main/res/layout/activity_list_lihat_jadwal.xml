@@ -44,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:text="Jadwal Kegiatan"
                 android:gravity="center"
+                android:fontFamily="@font/sairasemibold"
                 android:textSize="23dp"
                 android:textStyle="bold"
                 android:textColor="#fff"/>
