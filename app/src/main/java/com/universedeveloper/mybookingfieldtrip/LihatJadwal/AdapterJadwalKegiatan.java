@@ -11,6 +11,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.universedeveloper.mybookingfieldtrip.KonfirmasiPembayaran.AdapterKonfirmasiembayaran;
 import com.universedeveloper.mybookingfieldtrip.KonfirmasiPembayaran.DetailKonfirmasi;
@@ -89,7 +90,7 @@ public class AdapterJadwalKegiatan extends RecyclerView.Adapter<AdapterJadwalKeg
         };
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView txt_namalengkap,txt_nomorkegiatan,txt_namasekolah,txt_tanggalbooking,txt_jumlahsiswa,txt_jumlahguru,txt_jumlahsupir,txt_totalbayar,
                 txt_totalharga,txt_statuspesanan,txt_keterangan,txt_jenispaket,txt_id_transaksi, txt_id_user;
         private ImageView image;
@@ -102,67 +103,6 @@ public class AdapterJadwalKegiatan extends RecyclerView.Adapter<AdapterJadwalKeg
             ///txt_namalengkap = (TextView) view.findViewById(R.id.txt_namal);
             txt_namasekolah = (TextView)view.findViewById(R.id.txt_namasekolah);
             txt_tanggalbooking = (TextView)view.findViewById(R.id.txt_tanggalbooking);
-
-
-
-
-            view.setOnClickListener(this);
-
-            txt_tanggalbooking.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    Intent detail = new Intent(view.getContext(), DetailKonfirmasi.class);
-/*
-                    detail.putExtra("id_transaksi", txt_id_transaksi.getText());
-                    detail.putExtra("id", txt_id_user.getText());
-                    ///detail.putExtra("id_perusahaan", txt_id_perusahaan.getText());
-                    detail.putExtra("namalengkap", txt_namalengkap.getText());
-                    detail.putExtra("jenis_cetak", txt_jeniscetak.getText());
-                    detail.putExtra("nomor_invoice", txt_invoice.getText());
-                    detail.putExtra("lebar", txt_lebar.getText());
-                    detail.putExtra("panjang", txt_panjang.getText());
-                    detail.putExtra("jumlah_pesanan", txt_jumlahpesanan.getText());
-                    detail.putExtra("jumlah_harga", txt_jumlahharga.getText());*/
-
-/*                    detail.putExtra("id_pelamarmasuk", txt_id_pelamarmasuk.getText());
-                    detail.putExtra("id_user", txt_id_user.getText());
-                    detail.putExtra("id_perusahaan", txt_id_perusahaan.getText());
-                    detail.putExtra("nama_perusahaan", txt_nama_perusahaan.getText());
-                    detail.putExtra("id_lowongankerja", txt_id_lowongan.getText());
-                    detail.putExtra("judul_lowongan", txt_judul_lowongan.getText());
-                    detail.putExtra("deskripsi", txt_deskripsi.getText());
-                    detail.putExtra("gaji", txt_gaji.getText());
-                    detail.putExtra("deadline", txt_deadline.getText());
-                    detail.putExtra("kategori", txt_kategori.getText());
-                    detail.putExtra("status_pelamar", txt_statuspelamar.getText());
-                    detail.putExtra("keterangan", txt_keterangan.getText());*/
-
-                    view.getContext().startActivity(detail);
-                }
-            });
-        }
-
-        @Override
-        public void onClick(View view) {
-            Intent detail = new Intent(view.getContext(), DetailKonfirmasi.class);
-
-         /*   detail.putExtra("id_transaksi", txt_id_transaksi.getText());
-            detail.putExtra("id", txt_id_user.getText());
-            ///detail.putExtra("id_perusahaan", txt_id_perusahaan.getText());
-            detail.putExtra("namalengkap", txt_namalengkap.getText());
-            detail.putExtra("jenis_cetak", txt_jeniscetak.getText());
-            detail.putExtra("nomor_invoice", txt_invoice.getText());
-            detail.putExtra("lebar", txt_lebar.getText());
-            detail.putExtra("panjang", txt_panjang.getText());
-            detail.putExtra("jumlah_pesanan", txt_jumlahpesanan.getText());
-            detail.putExtra("jumlah_harga", txt_jumlahharga.getText());
-            ///detail.putExtra("kategori", txt_kategori.getText());
-            ///detail.putExtra("status_pelamar", txt_statuspelamar.getText());
-            ///detail.putExtra("keterangan", txt_keterangan.getText());*/
-
-            view.getContext().startActivity(detail);
-
         }
     }
 }

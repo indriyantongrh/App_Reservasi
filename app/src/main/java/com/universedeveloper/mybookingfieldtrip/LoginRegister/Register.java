@@ -25,6 +25,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.text.TextUtils.isEmpty;
+
 
 public class Register extends AppCompatActivity {
     Button btnlogin, btnregistrasi;
@@ -90,6 +92,18 @@ public class Register extends AppCompatActivity {
                 String password = txtpassword.getText().toString();
                 ////  String confirmpassword = txtconfirmpassword.getText().toString();
                 String nomor_hp = txttelepon.getText().toString();
+
+
+
+                if (isEmpty(nama_lengkap))
+                    txtnamalengkap.setError("Username harap diisi");
+                else if (isEmpty(email))
+                    txtemail.setError("Email harap diisi");
+                else if (isEmpty(password))
+                    txtpassword.setError("Password harap diisi");
+                else if (isEmpty(nomor_hp))
+                    txttelepon.setError("Nomor Telepon harap diisi");
+                else
 
                 if (conMgr.getActiveNetworkInfo() != null
                         && conMgr.getActiveNetworkInfo().isAvailable()

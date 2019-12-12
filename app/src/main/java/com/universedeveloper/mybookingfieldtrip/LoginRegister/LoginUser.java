@@ -30,6 +30,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.text.TextUtils.isEmpty;
+
 public class LoginUser extends AppCompatActivity {
     EditText txtusername, txtpassword;
     Button  btnlogin, btnregistrasi;
@@ -100,6 +102,15 @@ public class LoginUser extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                String username = txtusername.getText().toString();
+                String password = txtpassword.getText().toString();
+                if (isEmpty(username))
+                    txtusername.setError("Email/Nomor HP harap diisi");
+                else if (isEmpty(password))
+                    txtpassword.setError("Password harap diisi");
+
+                else
+
                checkLogin();
 
             }

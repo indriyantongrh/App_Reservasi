@@ -117,6 +117,9 @@ public class KonfirmasiPembayaran extends AppCompatActivity {
         });
     }
 
-
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 
 }

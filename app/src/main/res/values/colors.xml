@@ -12,4 +12,7 @@
     <color name="colorTab2">#47c1ff</color>
     <color name="colorPutih">#ffffff</color>
     <color name="colorBiruTwitter">#00acee</color>
+
+    <color name="colordark">#00102a</color>
+    <color name="colorcarddark">#1a2841</color>
 </resources>

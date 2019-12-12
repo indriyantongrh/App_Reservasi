@@ -67,7 +67,7 @@
             <!-- Column 1 -->
             <android.support.v7.widget.CardView
                 android:id="@+id/btn_paketsingkong"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="0.5"
                 android:layout_marginLeft="16dp"

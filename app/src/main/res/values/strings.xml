@@ -14,7 +14,8 @@
     <string name="hint_jumlahsiswa">Jumlah Siswa</string>
     <string name="hint_jumlahguru">Jumlah Guru Pendamping</string>
     <string name="hint_jumlahsupir">Jumlah Supir</string>
-
+    <string name="transfer">Transfer ke Nomor Rekening yang ada dibawah ini, sesuai nilai yang tertera pada "jumlah yang harus dibayarkan. </string>
+    <string name="arahankonfirmasi">  Jika sudah melakukan transfer silahkan konfirmasi pembayaran pada menu utama. Disitu silahkan upload bukti pembayaran anda.</string>
 
     <string name="title_beranda">Beranda</string>
     <string name="title_umkm">UMUKM Kandri</string>

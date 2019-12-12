@@ -249,7 +249,7 @@
 
                 <GridLayout
                     android:id="@+id/mainGrid"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:alignmentMode="alignMargins"
@@ -265,7 +265,7 @@
 
 
                         <LinearLayout
-                            android:layout_width="120dp"
+                            android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="1dp"
                             android:gravity="center|center_vertical"
@@ -300,7 +300,7 @@
 
 
                         <LinearLayout
-                            android:layout_width="120dp"
+                            android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="1dp"
                             android:gravity="center|center_vertical"
@@ -338,7 +338,7 @@
 
 
                         <LinearLayout
-                            android:layout_width="120dp"
+                            android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:gravity="center|center_vertical"
                             android:layout_margin="1dp"
@@ -374,7 +374,7 @@
 
 
                         <LinearLayout
-                            android:layout_width="120dp"
+                            android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:gravity="center|center_vertical"
                             android:orientation="vertical">
@@ -404,7 +404,7 @@
                         </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="120dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:gravity="center|center_vertical"
                         android:orientation="vertical">

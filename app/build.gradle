@@ -85,4 +85,7 @@ dependencies {
     implementation 'com.github.mreram:ticketview:1.0.0'
 
     implementation 'com.android.support:multidex:1.0.3'
+
+    // SplashScreen
+    implementation 'com.wang.avi:library:2.1.3'
 }

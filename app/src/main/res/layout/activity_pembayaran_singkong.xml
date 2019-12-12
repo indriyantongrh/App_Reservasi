@@ -66,7 +66,7 @@
     <GridLayout
         android:id="@+id/mainGrid"
         android:layout_width="match_parent"
-        android:layout_height="512dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:alignmentMode="alignMargins"
         android:columnCount="1"
@@ -200,6 +200,15 @@
                     android:textColor="@color/colormerah"
                     android:textSize="30sp"/>
 
+                <TextView
+                    android:text="@string/transfer"
+                    android:layout_below="@+id/txt_totalharga"
+                    android:textColor="#000"
+                    android:textSize="12dp"
+                    android:textStyle="italic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
             </RelativeLayout>
 
         </android.support.v7.widget.CardView>
@@ -207,8 +216,8 @@
         <!-- Column 2 -->
         <android.support.v7.widget.CardView
             android:id="@+id/DetailPembayaran"
-            android:layout_width="0dp"
-            android:layout_height="230dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="0.5"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
@@ -241,7 +250,7 @@
                     android:layout_toRightOf="@+id/imagebankbari"
                     android:text="A/N INDRIYANTO NUGROHO"
                     android:textAlignment="center"
-                    android:paddingTop="15dp"
+                    android:paddingTop="1dp"
                     android:fontFamily="@font/sairaregular"
                     android:textColor="@android:color/black"
                     android:textSize="14sp" />
@@ -281,7 +290,7 @@
                     android:text="A/N INDRIYANTO NUGROHO"
                     android:textAlignment="center"
                     android:fontFamily="@font/sairaregular"
-                    android:paddingTop="29dp"
+                    android:paddingTop="20dp"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"
                     />
@@ -302,6 +311,94 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
+                <ImageView
+                    android:id="@+id/imagegopay"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_below="@+id/imagebankjenius"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/gopay" />
+
+                <TextView
+                    android:id="@+id/namagopay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/nomorrekeningjenius"
+                    android:layout_toEndOf="@+id/imagegopay"
+                    android:layout_toRightOf="@+id/imagegopay"
+                    android:text="A/N INDRIYANTO NUGROHO"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/sairaregular"
+                    android:paddingTop="20dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    />
+
+                <TextView
+                    android:id="@+id/nomorgopay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/namagopay"
+                    android:layout_toEndOf="@+id/imagegopay"
+                    android:layout_toRightOf="@+id/imagegopay"
+                    android:text="085803000346"
+                    android:textIsSelectable="true"
+                    android:textAlignment="center"
+                    android:paddingTop="5dp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/sairasemibold"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/imageovo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_below="@+id/imagegopay"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ovo" />
+
+                <TextView
+                    android:id="@+id/namaovo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/nomorgopay"
+                    android:layout_toEndOf="@+id/imageovo"
+                    android:layout_toRightOf="@+id/imageovo"
+                    android:text="A/N INDRIYANTO NUGROHO"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/sairaregular"
+                    android:paddingTop="20dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    />
+
+                <TextView
+                    android:id="@+id/nomorovo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/namaovo"
+                    android:layout_toEndOf="@+id/imageovo"
+                    android:layout_toRightOf="@+id/imageovo"
+                    android:text="085803000346"
+                    android:textIsSelectable="true"
+                    android:textAlignment="center"
+                    android:paddingTop="5dp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/sairasemibold"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:text="@string/arahankonfirmasi"
+                    android:layout_below="@+id/nomorovo"
+                    android:textColor="#000"
+                    android:textSize="12dp"
+                    android:textStyle="italic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
 
             </RelativeLayout>
@@ -310,25 +407,7 @@
 
     </GridLayout>
 
-            <Button
-                android:id="@+id/btnkonfirmadmin"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="285dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="15dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/rec_gradient"
-                android:elevation="10dp"
-                android:paddingLeft="40dp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:paddingRight="40dp"
-                android:fontFamily="@font/sairasemibold"
-                android:text="KONFIRMASI ADMIN"
-                android:textColor="#fff"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+
             <Button
                 android:id="@+id/btnkembaliberanda"
                 android:layout_width="285dp"

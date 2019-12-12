@@ -94,20 +94,20 @@ public class PembayaranSingkong extends AppCompatActivity {
         txt_totalharga = findViewById(R.id.txt_totalharga);
         txtnomorkegiatan = findViewById(R.id.txtnomorkegiatan);
 
-        btnkonfirmadmin = findViewById(R.id.btnkonfirmadmin);
-        btnkonfirmadmin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentWhatsapp = new Intent("android.intent.action.MAIN");
-                intentWhatsapp.setAction(Intent.ACTION_VIEW);
-                String url = "https://api.whatsapp.com/send?phone=" + "6285803000346" + "&text=Halo admin, Mau konfirmasi nih...";
-
-                intentWhatsapp.setData(Uri.parse(url));
-                intentWhatsapp.setPackage("com.whatsapp");
-                startActivity(intentWhatsapp);
-
-            }
-        });
+//        btnkonfirmadmin = findViewById(R.id.btnkonfirmadmin);
+//        btnkonfirmadmin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intentWhatsapp = new Intent("android.intent.action.MAIN");
+//                intentWhatsapp.setAction(Intent.ACTION_VIEW);
+//                String url = "https://api.whatsapp.com/send?phone=" + "6285803000346" + "&text=Halo admin, Mau konfirmasi nih...";
+//
+//                intentWhatsapp.setData(Uri.parse(url));
+//                intentWhatsapp.setPackage("com.whatsapp");
+//                startActivity(intentWhatsapp);
+//
+//            }
+//        });
 
         btnkembaliberanda = findViewById(R.id.btnkembaliberanda);
 
