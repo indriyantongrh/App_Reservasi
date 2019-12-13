@@ -449,7 +449,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <com.universedeveloper.mybookingfieldtrip._sliders.SliderView
+                        <com.PersonalLancer.mybookingfieldtrip._sliders.SliderView
                             android:id="@+id/sliderView"
                             android:layout_below="@+id/toolbar"
                             android:layout_width="match_parent"

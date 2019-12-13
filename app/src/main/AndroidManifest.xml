@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.universedeveloper.mybookingfieldtrip">
+    package="com.PersonalLancer.mybookingfieldtrip">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
@@ -16,51 +16,51 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".Utility.AppController"
+        android:name="com.PersonalLancer.mybookingfieldtrip.Utility.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/logokandriapps"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logokandriapps"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginRegister.LoginUser"
+        <activity android:name="com.PersonalLancer.mybookingfieldtrip.LoginRegister.LoginUser"
             android:theme="@style/Tanpajudul"></activity>
         <activity
-            android:name=".LihatJadwal.ListLihatJadwal"
+            android:name="com.PersonalLancer.mybookingfieldtrip.LihatJadwal.ListLihatJadwal"
             android:theme="@style/Tanpajudul" />
         <activity
-            android:name=".KonfirmasiPembayaran.DetailKonfirmasi"
+            android:name="com.PersonalLancer.mybookingfieldtrip.KonfirmasiPembayaran.DetailKonfirmasi"
             android:theme="@style/Tanpajudul" />
         <activity
-            android:name=".KonfirmasiPembayaran.KonfirmasiPembayaran"
+            android:name="com.PersonalLancer.mybookingfieldtrip.KonfirmasiPembayaran.KonfirmasiPembayaran"
             android:theme="@style/Tanpajudul" />
         <activity
-            android:name=".LihatJadwal.LihatJadwal"
+            android:name="com.PersonalLancer.mybookingfieldtrip.LihatJadwal.LihatJadwal"
             android:theme="@style/Tanpajudul" />
         <activity
-            android:name=".PaketSusu.PembayaranSusu"
+            android:name="com.PersonalLancer.mybookingfieldtrip.PaketSusu.PembayaranSusu"
             android:theme="@style/Tanpajudul" />
         <activity
-            android:name=".PaketSusu.InputDataCustSusu"
+            android:name="com.PersonalLancer.mybookingfieldtrip.PaketSusu.InputDataCustSusu"
             android:theme="@style/Tanpajudul" />
         <activity
-            android:name=".PaketSusu.PaketSusu"
+            android:name="com.PersonalLancer.mybookingfieldtrip.PaketSusu.PaketSusu"
             android:theme="@style/Tanpajudul" />
         <activity
-            android:name=".PaketSingkong.PembayaranSingkong"
+            android:name="com.PersonalLancer.mybookingfieldtrip.PaketSingkong.PembayaranSingkong"
             android:theme="@style/Tanpajudul" />
         <activity
-            android:name=".PaketSingkong.InputDataCustomers"
+            android:name="com.PersonalLancer.mybookingfieldtrip.PaketSingkong.InputDataCustomers"
             android:theme="@style/Tanpajudul" />
         <activity
-            android:name=".PaketSingkong.PaketSingkong"
+            android:name="com.PersonalLancer.mybookingfieldtrip.PaketSingkong.PaketSingkong"
             android:theme="@style/Tanpajudul" />
         <activity
-            android:name=".BookingHari.ListPaket"
-            android:parentActivityName=".MainActivity"
+            android:name="com.PersonalLancer.mybookingfieldtrip.BookingHari.ListPaket"
+            android:parentActivityName="com.PersonalLancer.mybookingfieldtrip.MainActivity"
             android:theme="@style/Tanpajudul" />
         <activity
-            android:name=".SplashScreen"
+            android:name="com.PersonalLancer.mybookingfieldtrip.SplashScreen"
             android:theme="@style/Tanpajudul">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -68,9 +68,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.PersonalLancer.mybookingfieldtrip.MainActivity" />
         <activity
-            android:name=".LoginRegister.Register"
+            android:name="com.PersonalLancer.mybookingfieldtrip.LoginRegister.Register"
             android:theme="@style/Tanpajudul" />
     </application>
 
